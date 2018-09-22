@@ -1,0 +1,455 @@
+﻿<!DOCTYPE HTML>
+	$[tag.html.open]
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Open+Sans+Condensed:300,300i,700" rel="stylesheet">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+		<title>$[title] | $[forum.name]</title>
+		$[head]
+        <script>
+            $(document).ready(function() {
+                
+                var c = false;
+                
+                function showCbox() {
+                    $('.cbox').animate({"bottom": "0px"});
+                    c = true;
+                }
+                function hideCbox() {
+                    $('.cbox').animate({"bottom": "-320px"});
+                    c = false;
+                }
+                
+                $('#c-toggle').click(function() {
+                    if (c == false) {
+                        showCbox();
+                    }
+                    else {
+                        hideCbox();
+                    }
+                });
+                
+                var i = {if !$[current_user.is_guest]}false{else}true{/if};
+                var d = {if !$[current_user.is_guest]}true{else}false{/if};
+                
+                function hideInfo() {
+                    $('#info').css("background-color", "#ffffff");
+                    $('#i-content').css("display", "none");
+                    i = false;
+                }
+                function showInfo() {
+                    $('#info').css("background-color", "#e6e6e6");
+                    $('#i-content').css("display", "block");
+                    i = true;
+                }
+                function hideDashboard() {
+                    $('#dashboard').css("background-color", "#ffffff");
+                    $('#d-content').css("display", "none");
+                    d = false;
+                }
+                function showDashboard() {
+                    $('#dashboard').css("background-color", "#e6e6e6");
+                    $('#d-content').css("display", "block");
+                    d = true;
+                }
+                
+                $('#info').click(function() {
+                    if (i == false) {
+                        if (d == true) {
+                            hideDashboard();
+                            showInfo();
+                        }
+                        else {
+                        	showInfo();
+                        }
+                    }
+                });
+                $('#dashboard').click(function() {
+                    if (d == false) {
+                        if (i == true) {
+                            hideInfo();
+                            showDashboard();
+                        }
+                        else {
+                        	showDashboard();
+                        }
+                    }
+                });
+                                                                      
+                $('#options-container > .status').empty().append('<i class="fas fa-cog"></i>');
+                $('.post-options > .status').empty().append('<i class="fas fa-cog"></i>');
+                $('.message-options > .status').empty().append('<i class="fas fa-cog"></i>');
+                $('#poll-button').empty().append('<i class="far fa-chart-bar"></i>');
+                $('#attachment-button').empty().append('<i class="far fa-plus-square"></i>');
+                $('#event-button').empty().append('<i class="far fa-calendar-plus"></i>');
+            });
+        </script>
+	</head>
+	<body>
+		{if $[maintenance_mode]}
+			<div class="maintenance-header">
+				{if $[can.disable_maintenance]}<p>Finished with maintenance? $[disable_maintenance_link].</p>{/if}
+			</div>
+		{/if}
+        <!-- BANNER REMODEL © PUNKI - Do not steal or alter in any way. -->
+        <div class="p-banner">
+        	<div id="slide-title">
+            	<a href="/">
+                    <!-- Your forum title will go here. Please be sure to put all capital letters inside a <span></span> tag, or else they will not be capitalized. -->
+                    <div class="hover"></div><span>L</span>audate <span>D</span>ominum<div class="hover"></div>
+                </a>
+                <div class="b-subtitle">
+                    a traditional Catholic forum
+                </div>
+        	</div>
+        </div>
+        {if $[navigation.tree]}
+			<div id="navigation-tree">
+				$[navigation.tree]
+			</div>
+		{/if}
+        <header>
+            <div class="overlay">
+				$[header]
+            </div>
+        </header>
+        <div id="wrapper-overlay">
+        <div class="b-buttons">
+            <div class="b-button" id="info"{if $[current_user.is_guest]} style="background: #e6e6e6;"{/if}>
+                <i class="fas fa-info"></i> information
+            </div>
+            <div class="b-button" id="dashboard"{if !$[current_user.is_guest]} style="background: #e6e6e6;"{/if}>
+                <i class="far fa-user"></i> {if $[current_user.is_guest]}guest {/if}dashboard
+            </div>
+            <a class="b-button" href="/search" title="Search">
+                <i class="fas fa-search"></i> search
+            </a>
+            {if $[current_user.can_admin]}
+                <a class="b-button" href="/admin" title="Admin">
+                	<i class="fas fa-clipboard"></i> admin
+                </a>
+            {/if}
+        </div>
+        <div id="b-slide">
+            <div class="b-body">
+                <!-- This is your information panel. -->
+                            <div id="i-content"{if $[current_user.is_guest]} style="display: block;"{/if}>
+                                <table>
+                                    <tr>
+                                        <td valign="top">
+                                            <!-- Here are your navigation links. There are eight total. Please place the URLs in their specified locations. -->
+                                        	<div class="b-box2" id="links">
+                                    			<a class="nav-link" href="LINKHERE">
+                                                    <div class="nav-hover"></div>
+                                                    long link
+                                                </a>
+                                                <a class="nav-link" href="LINKHERE">
+                                                    <div class="nav-hover"></div>
+                                                    longer link
+                                                </a>
+                                                <a class="nav-link" href="LINKHERE">
+                                                    <div class="nav-hover"></div>
+                                                    even longer link
+                                                </a>
+                                                <a class="nav-link" href="LINKHERE">
+                                                    <div class="nav-hover"></div>
+                                                    link
+                                                </a>
+                                                <a class="nav-link" href="LINKHERE">
+                                                    <div class="nav-hover"></div>
+                                                    link
+                                                </a>
+                                                <a class="nav-link" href="LINKHERE">
+                                                    <div class="nav-hover"></div>
+                                                    link
+                                                </a>
+                                                <a class="nav-link" href="LINKHERE">
+                                                    <div class="nav-hover"></div>
+                                                    link
+                                                </a>
+                                                <a class="nav-link last" href="LINKHERE">
+                                                    <div class="nav-hover"></div>
+                                                    link
+                                                </a>
+                                			</div>
+                                            <div class="b-box2" id="credit">
+                                                <!-- Here is your credit. Be sure to keep it VERY short and sweet - the box doesn't have that much room. -->
+                                                Laudate Dominum © site owner
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="b-box2" id="about">
+                                                <div class="bb-title">
+                                                    Welcome to <b>LAUDATE DOMINUM</b>
+                                                </div>
+                                                <div style="padding: 10px; padding-right: 0;">
+                                                    <div class="text" style="overflow: auto; height: 92px; padding-right: 10px;">
+                                                        <!-- Here is your welcome message. -->
+                                                    	Here you can put a welcome message or forum description. This scrolls, so put as much as you like (though it looks better when it doesn't have to scroll).
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Here is the staff list. There is only room enough for four staffers, so prioritize it however you will. Feel free to contact myself, Punki, if you would like to have room for more than four, and I'll hook you up. -->
+                                            <div class="b-box2" id="staff">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="staffer first">
+                                                                <div class="overlay">
+                                                                    Punki<br>
+                                                                    Owner
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="staffer second">
+                                                                <div class="overlay">
+                                                                    STAFFER NAME<br>
+                                                                    POSITION
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="staffer third">
+                                                                <div class="overlay">
+                                                                    STAFFER NAME<br>
+                                                                    POSITION
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="staffer fourth">
+                                                                <div class="overlay">
+                                                                    STAFFER NAME<br>
+                                                                    POSITION
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <!-- This is your extra box. Do with it what you will. -->
+                                            <div class="b-box2" id="box1">
+                                                <div class="bb-title">
+                                                    box title
+                                                </div>
+                                                <div style="padding: 10px; padding-right: 0;">
+                                                    <div class="text" style="overflow: auto; height: 92px; padding-right: 10px;">
+                                                    	Put whatever you like here. This also scrolls.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- This is your awards. Please place the URL for your awardees in the specified locations. -->
+                                            <div class="b-box2" id="box2">
+                                                <div class="bb-title">
+                                                    of the month
+                                                </div>
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="AWARDEE-LINK">
+                                                            	<div class="otm">
+                                                                	award title
+                                                                	<div class="divider"></div>
+                                                                	awardee
+                                                            	</div>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="AWARDEE-LINK">
+                                                            	<div class="otm lastcol">
+                                                                	award title
+                                                                	<div class="divider"></div>
+                                                                	awardee
+                                                            	</div>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="AWARDEE-LINK">
+                                                            	<div class="otm lastrow">
+                                                                	award title
+                                                                	<div class="divider"></div>
+                                                                	awardee
+                                                            	</div>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a href="AWARDEE-LINK">
+                                                            	<div class="otm lastrow lastcol">
+                                                                	award title
+                                                                	<div class="divider"></div>
+                                                                	awardee
+                                                            	</div>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                			<!-- Here is your dashboard panel. -->
+                            <div id="d-content"{if !$[current_user.is_guest]} style="display: block;"{/if}>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div class="b-box2" id="interface">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            {if !$[current_user.is_guest]}<a href="/user/$[current_user.id]">{/if}
+                                                            	<div class="user-avatar">
+                                                                	$[current_user.avatar]
+                                                            	</div>
+                                                            {if !$[current_user.is_guest]}</a>{/if}
+                                                        </td>
+                                                        <td>
+                                                            <div class="welcome">
+                                                                {if !$[current_user.is_guest]}welcome back, {if $[current_user.name]}$[current_user.name]{else}$[current_user.username]{/if}{else}welcome, guest{/if}
+                                                            </div>
+                                                            <table class="welcome-links">
+                                                                <tr>
+                                                                {if $[current_user.is_guest]}
+                                                                    <td>
+                                                                    	<a href="$[login_link.href]" class="welcome-link">log in</a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="$[register_link.href]" class="welcome-link">register</a>
+                                                                    </td>
+                                                                    {else}
+                                                                    <td>
+                                                                    	<a href="/user/$[current_user.id]/avatar" class="welcome-link">edit profile</a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="$[logout_link.href]" class="welcome-link">log out</a>
+                                                                    </td>
+                                                                    {/if}
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <!-- This is your update box. Please follow the demonstrated formatting for the most optimal aesthetic appeal. -->
+                                			<div class="b-box2" id="updates">
+                                                <div class="bb-title">
+                                                    updates
+                                                </div>
+                                                <div style="padding: 10px;">
+                                                    <div class="text" style="overflow: auto; height: 142px; padding-right: 10px;">
+                                                    	<b>DATE</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed cursus metus, quis facilisis nunc. Nunc in nunc facilisis, posuere risus non, feugiat magna. Praesent sed metus dolor. Curabitur id rhoncus ipsum, in ornare tellus. Suspendisse potenti.<br><br>
+                                                        <b>DATE</b><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed cursus metus, quis facilisis nunc. Nunc in nunc facilisis, posuere risus non, feugiat magna. Praesent sed metus dolor. Curabitur id rhoncus ipsum, in ornare tellus. Suspendisse potenti.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <!-- This is your events box. You may change the title and purpose to something else, if you wish, such as purchasable advertisements for other sites. Just don't change the formatting. -->
+                                            <div class="b-box2" id="events">
+                                                <div class="bb-title">
+                                                    events
+                                                </div>
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                			<a href="EVENTLINK">
+                                                				<div class="b-event first">
+                                                    				<div class="overlay">
+                                                        				Here you can place an event description. This overlay will not scroll, so avoid overly long descriptions.
+                                                    				</div>
+                                                				</div>
+                                                			</a>
+                                                        </td>
+                                                        <td>
+                                                			<a href="EVENTLINK">
+                                                				<div class="b-event last">
+                                                    				<div class="overlay">
+                                                        				Here you can place an event description. This overlay will not scroll, so avoid overly long descriptions.
+                                                    				</div>
+                                                				</div>
+                                                			</a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="b-box2" id="user-links">
+                                                <table style="width: 100%;">
+                                                    <tr>
+                                                        <td>
+                                                			<a href="$[participated_threads_link.href]" class="$[participated_threads_link.class] b-user-link"{if $[current_user.is_guest]} title="Please log in or register to use this feature."{/if}>
+                                                    			<i class="fas fa-bars" style="margin-right: 5px;"></i> participated{if $[current_user.has_new_recent_threads]} (new){/if}
+                                                			</a>
+                                                        </td>
+                                                        <td>
+                                                			<a href="/user/$[current_user.id]/notifications" class="b-user-link"{if $[current_user.is_guest]} title="Please log in or register to use this feature."{/if}>
+                                                    			{if $[current_user.new_notifications] > 0}<i class="fas fa-bell" style="margin-right: 5px;"></i> $[current_user.new_notifications] {else}<i class="far fa-bell" style="margin-right: 5px;"></i> {/if}notification{if $[current_user.new_notifications] != 1}s{/if} 
+                                                			</a>
+                                                        </td>
+                                                        <td>
+                                                			<a href="/conversations" class="b-user-link"{if $[current_user.is_guest]} title="Please log in or register to use this feature."{/if}>
+                                                    			{if $[current_user.messages.new] > 0}<i class="fas fa-envelope" style="margin-right: 5px;"></i> $[current_user.messages.new] {else}<i class="fas fa-envelope-open" style="margin-right: 5px;"></i> {/if}message{if $[current_user.messages.new] != 1}s{/if}
+                                                			</a>
+                                                        </td>
+                                                        <td>
+                                                			<a href="/bookmarks" class="b-user-link"{if $[current_user.is_guest]} title="Please log in or register to use this feature."{/if}>
+                                                    			<i class="fas fa-bookmark" style="margin-right: 5px;"></i> bookmarks
+                                                			</a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <!-- This is my credit. Removing this is the equivalent of theft, and will be treated as such. -->
+                                            <div class="b-box2" id="subtext">
+                                                premade theme "sonorous" © <a href="http://adoxographyv2.boards.net/user/8639">punki</a> of <a href="http://adoxographyv2.boards.net">adoxography</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+            			</div>
+                    </div>
+		<div id="wrapper">
+			<div id="content" role="main">
+				{if $[notice]}
+					<div class="container">
+                        <div class="p-titlebar"><div class="hov"></div>$[notice.title]<div class="hov"></div></div>
+						<div class="content pad-all cap-bottom">
+							$[notice.message]
+						</div>
+					</div>
+				{/if}
+				$[content]
+			</div>
+		</div>
+        </div>
+        <!-- Here you may place a chat box and tag box for your site.  -->
+        <div class="cbox">
+            <div class="cbox-background">
+            	<div id="c-toggle">
+                	toggle chatbox
+            	</div>
+                <div class="chat">
+                    <!-- Chat box goes here. Replace the <img> tag with your chat box code. Chat box should be 790px wide, and 310px tall. -->
+                    <img src="http://placehold.it/790x310/424242/f2f2f2?text=CHAT+BOX+HERE">
+                </div>
+                <div class="tagbox">
+                    <!-- Tag box goes here. Replace the <img> tag with your tag box code. Tag box should be 400px wide, and 310px tall. -->
+                    <img src="http://placehold.it/400x310/424242/f2f2f2?text=TAG+BOX+HERE">
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="overlay">
+				$[footer]
+            </div>
+        </div>
+		{if $[is_mobile_browser]}
+			<br /><p class="center">Switch to the $[mobile_switch_link].</p>
+		{/if}
+	</body>
+</html>

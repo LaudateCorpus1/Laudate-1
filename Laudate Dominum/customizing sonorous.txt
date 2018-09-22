@@ -1,0 +1,65 @@
+﻿
+when you install a new theme on a forum, you have to make sure that it's the one you're using on your personal account as well. Go to your profile, then edit profile, then the settings tab--there should be a dropdown box about halfway down the page that lets you select the new theme. then hit the 'save changes' button at the bottom, and refresh the page--then you should be able to see and use it. :)
+
+
+Customizing Sonorous
+
+So go to admin > themes > advanced styles & css > style sheet
+
+You'll see lines of code. If you know nothing about code and such (like myself) don't freak out. It looks scary but it's pretty easy even for a newbie.
+
+Go to line 9 where it says @banner-image-url: 'https://i.imgur.com/JfnF8JF.jpg'; /* Must be AT LEAST 600px tall, with a wallpaper-sized width (somewhere in 1920px to 2560px range) */
+
+https://farm2.staticflickr.com/1854/44091412574_a221186126_o.jpg 
+
+Replace the link I highlighted in red with the link to your own banner and hit save. You can also change colors from the stylesheet and loads of other stuff. Hope this helps!
+
+-----------------------------------------------------------------------------------------------------------------------------------
+to change the image's title
+
+go to Admin > Structure > Layout Templates, Forum Wrapper template. That particular text you wish to change starts on line 345. (actually, it was 99)
+
+------------------------------------------------------------------------------------------------------------------------------------
+color picker
+
+https://www.w3schools.com/colors/colors_picker.asp?color=80ced6 
+
+to edit the colors, go to the CSS style sheet
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+For most edits in the Banner and in the Footer, you can find the related code in the Forum Wrapper Layout Template. Here are the directions: Admin>Themes>Layout Template>Forum Wrapper. From there, here are the Line #s for the information you are looking for!
+
+Title: Line 99
+Sub-Title: Line 102
+Navigation Links: Line 140
+Site Credit: Line 177
+Welcome Title: Line 183
+Welcome Message: Line 188
+Staff: Line 192
+Extra Box: Line 233
+Awards: Line 242
+Update: Line 338
+Events: Line 352
+
+To Delete the Chatbox Area (which you may do), select Lines 431-445, and then delete. If you want to have a chatbox again, then you will need to use the same code, if not, then problem solved.
+
+Now here is the fun part, as I have been looking through the code, if you want to change/add images for the above sections, you will need to go into the Style Sheet (Admin>Themes>Advanced Styles & CSS>Style Sheet) to edit that. I'll leave the sections below for where the most areas for editing are!
+
+All Images: Line 1-22
+
+The theme creator was pretty clever and left all images in the top section, so that is the only part that needs to be changed and it gets cycled through the rest of the code.
+
+Hopefully this works, if not then just post back here and someone can help!
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+The forum font size is too small! How can I increase it?
+
+To increase the global font size on the forum, visit the admin panel and then navigate to Themes > Advanced Styles & CSS. On the next page using the Visual Editor use the navigation tree below to navigate to: 
+
+Forum > Text Styles > Default Forum Text 
+
+For the options that expand here, look for the Font Size option and change this to a larger size that fits your needs. You can either manually type in a specific size, such as 12pt, or you can select one of the size options from the drop-down menu. You can use the live preview provided on the page to see the changes as you are making them to ensure the font you selected looks good. Once you have made the changes, click the "Save Theme" button at the top of the page and you will see the changes the next time you view the forum. 
+
