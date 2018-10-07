@@ -63,3 +63,8 @@ Forum > Text Styles > Default Forum Text
 
 For the options that expand here, look for the Font Size option and change this to a larger size that fits your needs. You can either manually type in a specific size, such as 12pt, or you can select one of the size options from the drop-down menu. You can use the live preview provided on the page to see the changes as you are making them to ensure the font you selected looks good. Once you have made the changes, click the "Save Theme" button at the top of the page and you will see the changes the next time you view the forum. 
 
+-------------------------------------------------------------------------------------------------------------------------------------
+
+To backup the Theme
+
+Pick the theme you want to backup (sonorous), choose Settings, choose the Export tab, choose the Export to Computer button. It will automatically download to the download folder.
